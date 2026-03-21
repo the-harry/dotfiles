@@ -100,6 +100,53 @@ autoload -Uz compinit && compinit
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
+# vi mode
+bindkey -v
+bindkey "^F" vi-cmd-mode
+bindkey jj vi-cmd-mode
+
+# handy keybindings
+bindkey "^A" beginning-of-line
+bindkey "^E" end-of-line
+bindkey "^K" kill-line
+bindkey "^R" history-incremental-search-backward
+bindkey "^P" history-search-backward
+bindkey "^Y" accept-and-hold
+bindkey "^N" insert-last-word
+bindkey -s "^T" "^[Isudo ^[A" # "t" for "toughguy"
+
+set -o nobeep # no annoying beeps
+
+# aliases
+[[ -f ~/.aliases ]] && source ~/.aliases
+
+# Zsh syntax highlight
+source ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+TERM=screen-256color
+
+# Local config
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+
+# Peepcode theme to make your terminal simple and beautiful
+source ~/.zsh/themes/peepcode.theme
+
+# Your secrets env var
+[[ -f ~/.secrets ]] && source ~/.secrets
+
+setopt interactivecomments
+
+export PATH=$PATH:/usr/local/go/bin
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+eval "$(fzf --zsh)"
+
+. "$HOME/.asdf/asdf.sh"
+fpath=(${ASDF_DIR}/completions $fpath)
+autoload -Uz compinit && compinit
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
 # export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 # export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 
