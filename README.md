@@ -4,6 +4,12 @@
 
 This project is a fork from [CC Dotfiles](https://github.com/the-harry/dotfiles).
 
+Huge kudos to the Campus Code bootcamp crew for lighting the path and inspiring this work. I deliberately diverged into my own playful fork while keeping a big hat tip to their original project.
+
+(cheeky alert: I tried my best to keep up with their standards — any differences are just my extra creative detour).
+
+- Original (campus code): https://github.com/campuscode/cc_dotfiles
+
 ## Pre-Requisites
 
 ### Ubuntu / Debian / Kali
