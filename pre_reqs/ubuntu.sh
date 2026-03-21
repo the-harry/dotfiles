@@ -164,27 +164,46 @@ install_erlang_and_elixir() {
   asdf plugin add elixir https://github.com/asdf-vm/asdf-elixir.git
 }
 
+install_pyenv() {
+  curl https://pyenv.run | bash
+}
+
+install_asdf() {
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.11.3
+  echo '. $HOME/.asdf/asdf.sh' >> ~/.bashrc
+  echo '. $HOME/.asdf/completions/asdf.bash' >> ~/.bashrc
+}
+
 echo 'Starting ubuntu install'
 
 sudo apt-get upgrade && apt-get update
 
+# Layer 1: Common tools
+install_fzf
+install_zellij > /dev/null 2>&1
+
+# Layer 2: Arch independent software
+install_brave
+install_gnome_terminal_colors
+
+# Layer 3: Cvinfra
+install_aws
+install_gcp
+install_heroku
 install_docker
 install_docker_compose
 install_k8s
+install_go
+install_erlang_and_elixir
 
+# Layer 4: Leisure apps
 install_spotify
-install_brave
-install_fzf
-install_zellij > /dev/null 2>&1
-install_gnome_terminal_colors
-
 install_atom
-
-install_heroku
-install_aws
-install_gcp
-
 install_dbeaver
+
+# Layer 5: Stack flavours
+install_pyenv
+install_asdf
 
 remove_manual_ruby_install
 
@@ -192,8 +211,5 @@ setup_wallpaper
 install_fira_code_font
 
 install_jmeter
-
-install_go
-install_erlang_and_elixir
 
 echo 'Minimal requests installed! =]'

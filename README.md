@@ -24,6 +24,8 @@ This project is a fork from [CC Dotfiles](https://github.com/the-harry/dotfiles)
 
 ## Installation
 
+### Automated Installation
+
 Run the following command:
 
 ```sh
@@ -31,6 +33,20 @@ sh -c "$(curl -fSs https://raw.githubusercontent.com/the-harry/dotfiles/refs/hea
 ```
 
 Type your password to change your default shell to `zsh`.
+
+### Manual Installation
+
+Alternatively, clone the repository directly to `~/.dotfiles`:
+
+```sh
+git clone https://github.com/the-harry/dotfiles ~/.dotfiles
+```
+
+Then run the install script:
+
+```sh
+cd ~/.dotfiles && ./install.sh
+```
 
 ## Post-Installation Steps (Mac Intel / M2 / M3)
 
