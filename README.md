@@ -49,7 +49,6 @@ Type your password to change your default shell to `zsh`.
 ## Documentation
 
 * [Vim Key Mapping](Vim.md)
-* [Tmux Key Mapping](Tmux.md)
 
 ## Customization
 
@@ -61,5 +60,4 @@ Place your custom configurations in the following files:
 * `.vimrc.local`
 * `.zshenv.local`
 * `.plugin.vim.local`
-* `.tmux.conf.local`
 * `.gitconfig.local`

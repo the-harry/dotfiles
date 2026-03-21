@@ -62,21 +62,16 @@ install_fzf() {
   ~/.fzf/install
 }
 
-install_tmux() {
-  TMUX_VERSION="3.1b"
-  TMUX_SOURCE_FILE="tmux-${TMUX_VERSION}.tar.gz"
-  TMUX_SOURCE_FOLDER="tmux-${TMUX_VERSION}"
+install_zellij() {
+  ZELLIJ_VERSION="0.39.2"
+  ZELLIJ_SOURCE_FILE="zellij-x86_64-unknown-linux-musl.tar.gz"
+  ZELLIJ_URL="https://github.com/zellij-org/zellij/releases/download/v${ZELLIJ_VERSION}/${ZELLIJ_SOURCE_FILE}"
 
-  echo "Installing tmux ${TMUX_VERSION}"
-  wget https://github.com/tmux/tmux/releases/download/${TMUX_VERSION}/${TMUX_SOURCE_FILE}
-  tar -xf ${TMUX_SOURCE_FILE}
-  pushd $TMUX_SOURCE_FOLDER
-  ./configure
-  make
-  sudo make install
-  popd
-  rm -rf $TMUX_SOURCE_FOLDER
-  rm $TMUX_SOURCE_FILE
+  echo "Installing zellij ${ZELLIJ_VERSION}"
+  wget $ZELLIJ_URL
+  tar -xf $ZELLIJ_SOURCE_FILE
+  sudo mv zellij /usr/local/bin/
+  rm $ZELLIJ_SOURCE_FILE
 }
 
 install_gnome_terminal_colors() {
@@ -200,7 +195,7 @@ install_k8s
 install_spotify
 install_brave
 install_fzf
-install_tmux > /dev/null 2>&1
+install_zellij > /dev/null 2>&1
 install_gnome_terminal_colors
 
 install_atom

@@ -146,8 +146,8 @@ if has('persistent_undo')
 endif
 
 
-let is_tmux = $TMUX
-if is_tmux != ""
+let is_zellij = $ZELLIJ
+if is_zellij != ""
   autocmd VimEnter * VtrAttachToPane
 endif
 
