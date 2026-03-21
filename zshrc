@@ -2,12 +2,28 @@ setopt promptsubst
 
 if [ "$ZELLIJ" = "" ]; then zellij; fi
 
+# Basic environment
+export PATH="$HOME/bin:/usr/local/bin:/usr/bin:/bin"
+export EDITOR=vim
+export VISUAL=vim
+
+# Simple prompt
+PROMPT='%n@%m %~ %# '
+
+# History
+HISTFILE=~/.zsh_history
+HISTSIZE=1000
+SAVEHIST=1000
+
 # load our own completion functions
 fpath=(~/.zsh/completion /usr/local/share/zsh/site-functions $fpath)
 
 # completion
 autoload -U compinit
 compinit -u
+
+# Load aliases
+[[ -f ~/.aliases ]] && source ~/.aliases
 
 # load custom executable functions
 for function in ~/.zsh/functions/*; do
